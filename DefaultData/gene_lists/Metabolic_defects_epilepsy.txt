@@ -1,0 +1,17 @@
+#Metabolic defects Epilepsy genes gathered from intersection of Martinez LA, Lai YC, Holder JL Jr, Anderson AE. Genetics in Epilepsy. Neurol Clin. 2021 Aug;39(3):743-777. doi: 10.1016/j.ncl.2021.05.005. PMID: 34215385., https://www.invitae.com/en/providers/test-catalog/test-03401 and omim.org (7/2023)
+ATP1A1
+ATP1A2
+DHDDS
+HNRNPU
+PPT1
+SLC2A1
+CAD
+UNC80
+AMT
+PTPN23
+QARS
+ALDH7A1
+ARG1
+GLDC
+FOLR1
+PNPO

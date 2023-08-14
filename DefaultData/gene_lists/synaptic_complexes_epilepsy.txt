@@ -1,0 +1,12 @@
+#Mutations of synaptic complexes Epilepsy genes gathered from intersection of Martinez LA, Lai YC, Holder JL Jr, Anderson AE. Genetics in Epilepsy. Neurol Clin. 2021 Aug;39(3):743-777. doi: 10.1016/j.ncl.2021.05.005. PMID: 34215385., https://www.invitae.com/en/providers/test-catalog/test-03401 and omim.org (7/2023)
+NRXN1
+SYNGAP1
+CNTNAP2
+DNM1
+STXBP1
+STX1B
+TBC1D24
+SNAP25
+ARHGEF9
+IQSEC2
+PCDH19

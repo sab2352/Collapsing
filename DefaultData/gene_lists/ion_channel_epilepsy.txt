@@ -1,0 +1,24 @@
+#Ion channel Epilepsy genes gathered from intersection of Martinez LA, Lai YC, Holder JL Jr, Anderson AE. Genetics in Epilepsy. Neurol Clin. 2021 Aug;39(3):743-777. doi: 10.1016/j.ncl.2021.05.005. PMID: 34215385., https://www.invitae.com/en/providers/test-catalog/test-03401 and omim.org (7/2023)
+CACNA1E
+KCNA2
+KCNH1
+KCNJ10
+SCN1A
+SCN2A
+SCN3A
+SCN9A
+CACNA2D2
+CLCN2
+KCNQ5
+KCND2
+CACNA1B
+KCNT1
+KCNMA1
+SCN8A
+KCNH5
+CACNA1H
+CACNA1A
+SCN1B
+KCNB1
+KCNQ2
+SLC12A5

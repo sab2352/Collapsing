@@ -1,0 +1,6 @@
+# disease genes for interstitial cystitis from Estrella, E. et al. Mendelian Disorders in an Interstitial Cystitis Bladder Pain Syndrome Cohort. Advanced Genetics 4, 2200013 (2023).
+ATP2C1
+DCAF8
+SIX5
+ENAM
+ATP2A2

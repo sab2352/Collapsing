@@ -1,0 +1,5 @@
+# VPA target gene set from Wolking, S. et al. Testing association of rare genetic variants with resistance to three common antiseizure medications. Epilepsia 61, 657–666 (2020).
+HDAC1
+HDAC2
+HDAC3
+HDAC8
