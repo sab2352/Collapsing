@@ -1,0 +1,95 @@
+USER_VARIABLE:
+  case_path: /PATH/case_list.txt
+  case_group: project_name
+COLLAPSING_VARIABLE:
+  resolution: "0_2"
+  min_cluster: 0
+  max_cluster: 5
+  min_sample: 20
+  max_ratio: NA
+  mixed_ancestry_cluster: NA
+  kinship_relatedness_threshold: 0.0884
+  excludeOutliers: FALSE
+  runCoveragePCA: FALSE
+  useCoveragePCA: FALSE
+  models_to_exclude: "dominantNoneMAF"
+  combine_ctrl_output: FALSE
+ADDITIONAL_PARAMETERS:
+  cohortSelection: ""
+  forestPlot: ""
+  runNHC: ""
+  cmh_qq: ""
+  TableWModels: " --gnomad_exome_pop_max 0,0,0,0 --gnomad_genome_pop_max 0,0,0,0 "
+PERMUTATION_VARIABLE:
+  permstart: 1
+  permend: 1000
+  cores: 15
+  perm_models: "dominantSynonymous"
+MODEL_VARIABLE:
+  model_num: "1 4 5 7-10 13"
+  #Josh PICU
+  model_1: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $SYN_EFFECTS  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0  --loo-maf 0.0005 --max-qc-fail-sample 0 --gnomad-genome-rf-tp-probability-snv 0.01 --gnomad-genome-rf-tp-probability-indel 0.02 --gnomad-exome-rf-tp-probability-snv 0.01 --gnomad-exome-rf-tp-probability-indel 0.02 --min-pext-ratio 0.9 --exclude-repeat-region --sample $samples --out $outputFolder/URSyn_pext9/"
+  #Flex PTV
+  model_2: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $LOF_EFFECTS_HQ --exclude-false-loftee  --gnomad-genome-pop global --gnomad-genome-maf 0.001 --gnomad-exome-pop $GNOMAD_POP --gnomad-exome-maf 0.001 --loo-maf 0.001 --max-qc-fail-sample 0 --gnomad-genome-rf-tp-probability-snv 0.01 --gnomad-genome-rf-tp-probability-indel 0.02 --gnomad-exome-rf-tp-probability-snv 0.01 --gnomad-exome-rf-tp-probability-indel 0.02  --min-pext-ratio 0.9 --exclude-repeat-region --sample $samples --out $outputFolder/FlexPTV_pext9/"
+  model_3: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $SYN_EFFECTS --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0 --gnomad-genome-rf-tp-probability-snv 0.01 --gnomad-genome-rf-tp-probability-indel 0.02 --gnomad-exome-rf-tp-probability-snv 0.01 --gnomad-exome-rf-tp-probability-indel 0.02 --min-pext-ratio 0.9 --exclude-repeat-region --max-igm-af  0.00002 --sample $samples --out $outputFolder/URSyn_pext9_igm_af/"
+  #Flex PTV
+  model_4: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $LOF_EFFECTS_HQ --exclude-false-loftee  --gnomad-genome-pop global --gnomad-genome-maf 0.001 --gnomad-exome-pop $GNOMAD_POP --gnomad-exome-maf 0.001 --loo-maf 0.001 --max-qc-fail-sample 0 --gnomad-genome-rf-tp-probability-snv 0.01 --gnomad-genome-rf-tp-probability-indel 0.02 --gnomad-exome-rf-tp-probability-snv 0.01 --gnomad-exome-rf-tp-probability-indel 0.02 --min-pext-ratio 0.9 --exclude-repeat-region --sample $samples --out $outputFolder/FlexPTV_pext9/" 
+  #UR PTV
+  model_5: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $LOF_EFFECTS_HQ --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0 --gnomad-genome-rf-tp-probability-snv 0.01 --gnomad-genome-rf-tp-probability-indel 0.02 --gnomad-exome-rf-tp-probability-snv 0.01 --gnomad-exome-rf-tp-probability-indel 0.02 --exclude-false-loftee --exclude-repeat-region --min-pext-ratio 0.9 --max-igm-af  0.00002 --sample $samples --out $outputFolder/URPTV_pext9_igm_af/"
+  #Dominant Syn
+  model_6: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $SYN_EFFECTS --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0 --sample $samples --out $outputFolder/dominantSynonymous/" 
+  #Josh: Dominant Syn
+  model_7: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $SYN_EFFECTS --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --min-pext-ratio 0.9 --max-qc-fail-sample 0 --exclude-repeat-region --sample $samples --out $outputFolder/domSynP9/"
+  ### Dominant PTV with LOFTEE
+  model_8: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $LOF_EFFECTS --exclude-false-loftee  --gnomad-genome-pop global --gnomad-genome-maf 0.001 --gnomad-exome-pop afr,amr,asj,eas,sas,fin,nfe --gnomad-exome-maf 0.001 --exac-pop afr,amr,nfe,fin,eas,sas --exac-maf 0.001 --loo-maf 0.001 --max-qc-fail-sample 2 --sample $samples --out $outputFolder/dominantPTV/"
+  ### Dominant Ultra-rare with LOFTEE
+  model_9: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $FUNCTIONAL_EFFECTS --polyphen probably --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0  --exclude-false-loftee --sample $samples --out $outputFolder/dominantUltraRareP/"
+  ### Josh: Dominant Ultra-rare with LOFTEE
+  model_10: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $LOF_EFFECTS_HQ --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0  --exclude-false-loftee --min-pext-ratio 0.9 --exclude-repeat-region --sample $samples --out $outputFolder/URPTVP9/"
+  ### Dominant Rare
+  model_11: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $FUNCTIONAL_EFFECTS --polyphen probably,possibly,unknown  --gnomad-genome-pop global --gnomad-genome-maf 0.0005 --gnomad-exome-pop afr,amr,asj,eas,sas,fin,nfe --gnomad-exome-maf 0.0005 --exac-pop afr,amr,nfe,fin,eas,sas --exac-maf 0.0005 --loo-maf 0.001 --max-qc-fail-sample 2 --sample $samples --out $outputFolder/dominantRareNB/"
+  ### Dominant Ultra-rare Ensemble and LOFTEE
+  model_12: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $FUNCTIONAL_EFFECTS --polyphen probably --min-primate-ai 0.8 --min-revel-score 0.5 --ensemble-missense --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0 --exclude-false-loftee --sample $samples --out $outputFolder/dominantUltraRareEnsemble/"
+  ### Josh: Ultra-rare PTV + Missense
+  model_13: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $FUNCTIONAL_EFFECTS_HQ --polyphen probably --min-primate-ai 0.8 --min-revel-score 0.5 --ensemble-missense --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0 --exclude-repeat-region --exclude-false-loftee --min-pext-ratio 0.9 --sample $samples --out $outputFolder/URPTVMisP9/"
+  ### Josh: Ultra-rare Missense
+  model_14: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $MISSENSE_ONLY --polyphen probably --min-primate-ai 0.8 --min-revel-score 0.5 --ensemble-missense --min-exac-vqslod-snv 5000 --min-exac-vqslod-indel 5000  --gnomad-genome-pop global --gnomad-genome-maf 0 --gnomad-exome-pop global --gnomad-exome-maf 0 --exac-pop global --exac-maf 0 --loo-maf 0.0005 --max-qc-fail-sample 0 --min-pext-ratio 0.9 --exclude-repeat-region --sample $samples --out $outputFolder/URMisP9/"
+  ### Dominant Rare Ensemble
+  model_15: "$atav --collapsing-lite --mann-whitney-test --genotype $genos --effect $FUNCTIONAL_EFFECTS --polyphen probably --min-primate-ai 0.8 --min-revel-score 0.5 --ensemble-missense  --gnomad-genome-pop global --gnomad-genome-maf 0.0005 --gnomad-exome-pop afr,amr,asj,eas,sas,fin,nfe --gnomad-exome-maf 0.0005 --exac-pop afr,amr,nfe,fin,eas,sas --exac-maf 0.0005 --loo-maf 0.001 --max-qc-fail-sample 2 --sample $samples --out $outputFolder/dominantRareEnsemble/"
+  ### recessive model 1
+  model_16: "$atav --collapsing-comp-het --exclude-comp-het-pid-variant --exclude-comp-het-hp-variant --mann-whitney-test --region $AUTOSOMES --gene-boundaries $geneBoundaries --read-coverage-summary $coverage2 $INCLUDES --effect $FUNCTIONAL_EFFECTS --exclude-multiallelic-variant-2 $QC  --gnomad-genome-pop global --gnomad-genome-maf 0.01 --gnomad-exome-pop afr,amr,asj,eas,sas,fin,nfe --gnomad-exome-maf 0.01 --loo-maf 0.01 --sample $samples --out $outputFolder/recessiveAutosomalwoMAPIDHP/"
+  ### recessive model 2
+  model_17: "$atav --collapsing-comp-het --exclude-comp-het-pid-variant --exclude-comp-het-hp-variant --mann-whitney-test --region $AUTOSOMES --gene-boundaries $geneBoundaries --read-coverage-summary $coverage2 $INCLUDES --effect $FUNCTIONAL_EFFECTS --polyphen probably,possibly,unknown --min-primate-ai 0.5 --min-revel-score 0.25 --ensemble-missense --exclude-multiallelic-variant-2 $QC  --gnomad-genome-pop global --gnomad-genome-maf 0.01 --gnomad-exome-pop afr,amr,asj,eas,sas,fin,nfe --gnomad-exome-maf 0.01  --loo-maf 0.01 --sample $samples --out $outputFolder/recessiveAutosomalLEwoMAPIDHP/"
+  model_18: "$atav --collapsing-lite --mann-whitney-test --genotype $outputFolder/URFUNC_min80_digenic/URFUNC_min80_digenic_genotypes.csv --sample $samples --out $outputFolder/URFUNC_min80_digenic/ --gene-column Digene"
+NHC_VARIABLE:
+  model: URPTV_pext9_igm_af
+  cluster: 1
+  w: 0.99
+  b: 50
+  m: 0.5
+REGENIE_VARIABLE:
+  aafs: "0.1,0.05,0.01"
+  minMac: "5"
+  pcs: 6
+  plink_mac: "1"
+POWER_COLLAPSING:
+  calc: "power"
+  alpha: 0.08
+  odds_ratio: 3
+THRESHOLD_DETECTION:
+  model: URPTV_min80
+  permend: 10000
+  threshold_var: LOEUF
+TABLE_W_MODELS:
+  model_name: "Ultra-Rare_Synonymous,Ultra-Rare_pLOF,Ultra-Rare_Missense,Ultra-Rare_Deleterious"
+  inheritance: "Dominant,Dominant,Dominant,Dominant"
+  effects: "Synonymous,Missense,pLOF,Missense_and_pLOF"
+GENE_SET:
+  path: Input/test_genes.txt
+  name: josh_test_genes
+  model: URFUNC_min80
+LOEUF_FILTER:
+  loeuf: "0.160"
+  model: URFUNC_min80
+FOREST_PLOT:
+  path_to_fp_models: Input/fp_models_refractory_nonrefractory_intolerant.csv

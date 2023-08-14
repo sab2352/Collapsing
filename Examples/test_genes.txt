@@ -1,0 +1,3 @@
+# a test gene set
+SCN1A
+SCN2A
