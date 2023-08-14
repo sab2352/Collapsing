@@ -1,14 +1,6 @@
 # Clustered Collapsing
-### Version 2.8
 
 ## Collapsing Analysis Workflow
-
-This repo is meant to be cloned for each new collapsing project. The workflow is based on previously published IGM collapsing analyses performed for heart failure (Poyvsil et al. 2021) and common epilepsies (Epi25 Consortium 2021). This was forked from Gundula's original repository and will contain modifications by the current crew of IGM developers.
-
-Developers should use the "dev" branch while non-developers should use the "main" branch. "main" reflects the most recent release although this repo is under active development.
-
-The wiki tab has been removed from GitHub because of IGM-Team permissions. All wiki files can be found within the <a href = "/Tutorial"> Tutorial </a> folder or linked below to each step of collapsing analysis.
-
 
 Prerequisites
 
